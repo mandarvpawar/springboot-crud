@@ -11,11 +11,7 @@ pipeline {
   
   stages {
     stage("init") {
-      tools {
-        jdk "jdk-1.8.101"
-      }
       steps {
-        sh "java -version"
         script {
           gv = load "script.groovy"
         }
