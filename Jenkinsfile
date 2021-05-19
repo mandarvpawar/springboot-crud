@@ -25,7 +25,13 @@ pipeline {
     stage("build") {
       steps {
         script {
-          echo "Workspace: ${env.WORKSPACE}"
+          sh "ls ${env.JENKINS_HOME}"
+          echo '***********************'
+          sh "ls ${env.WORKSPACE}"
+          echo '***********************'
+          sh "ls ${env.PWD}"
+          echo '***********************'
+          sh "ls ${env.WORKSPACE_TMP}"
           gv.buildApp()
         }
       }
