@@ -20,6 +20,7 @@ pipeline {
     stage("build") {
       steps {
         script {
+          echo "Workspace: ${env.WORKSPACE}"
           gv.buildApp()
         }
       }
