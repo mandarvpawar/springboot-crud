@@ -10,11 +10,15 @@ pipeline {
   }
   
   stages {
+    stage("Env Variables") {
+      steps {
+        sh "printenv"
+      }
+    }
     stage("init") {
       steps {
         script {
           gv = load "script.groovy"
-          echo 'printenv'
         }
       }
     }
