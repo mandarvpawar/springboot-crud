@@ -2,7 +2,7 @@ def gv
 
 pipeline {
   
-  agent any
+  agent { label 'maven' }
   
   parameters {
     choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
@@ -32,6 +32,8 @@ pipeline {
           sh "ls ${env.PWD}"
           echo '***********************'
           sh "ls ${env.WORKSPACE_TMP}"
+          echo '***********************'
+          sh 'printenv'
           gv.buildApp()
         }
       }
