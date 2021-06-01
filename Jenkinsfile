@@ -2,7 +2,7 @@ def gv
 
 pipeline {
   
-  agent any
+  agent { label 'maven' }
   
   parameters {
     choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
@@ -14,6 +14,11 @@ pipeline {
   }
   
   stages {
+    stage("Env Variables") {
+      steps {
+        sh "printenv"
+      }
+    }
     stage("init") {
       steps {
         script {
@@ -24,6 +29,15 @@ pipeline {
     stage("build") {
       steps {
         script {
+          sh "ls ${env.JENKINS_HOME}"
+          echo '***********************'
+          sh "ls ${env.WORKSPACE}"
+          echo '***********************'
+          sh "ls ${env.PWD}"
+          echo '***********************'
+          sh "ls ${env.WORKSPACE_TMP}"
+          echo '***********************'
+          sh 'printenv'
           gv.buildApp()
         }
       }
