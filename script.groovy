@@ -1,11 +1,11 @@
-def version = "5.5.5"
+def date = "5.5.5"
 
 def buildApp() {
   	echo 'Building the application'
   	echo "Version: ${Version}"
   	echo "Version: ${env.Version}"
   
-	echo '$version'
+	echo '${date}'
 }
 
 def testApp() {
