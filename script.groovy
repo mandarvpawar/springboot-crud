@@ -1,5 +1,7 @@
 def buildApp() {
   echo 'building the application'
+  echo "Version: ${Version}"
+  echo "Version: ${env.Version}"
 }
 
 def testApp() {

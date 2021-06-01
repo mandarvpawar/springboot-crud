@@ -9,6 +9,10 @@ pipeline {
     booleanParam(name: 'executeTests', defaultValue: true, description: '')
   }
   
+  environment {
+  	version = "1.0.0"
+  }
+  
   stages {
     stage("init") {
       steps {
