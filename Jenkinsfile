@@ -38,7 +38,7 @@ pipeline {
           sh "ls ${env.WORKSPACE_TMP}"
           echo '***********************'
           sh 'printenv'
-          gv.buildApp()
+          gv.buildApp("build stage")
         }
       }
     }
