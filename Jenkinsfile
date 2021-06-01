@@ -50,7 +50,7 @@ pipeline {
       }
       steps {
         script {
-          gv.testApp()
+          gv.testApp("jenkinsfile:: test")
         }
       }
     }

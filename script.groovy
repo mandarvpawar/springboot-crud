@@ -5,16 +5,18 @@ def buildApp(String arg) {
   	echo "Version: ${Version}"
   
 	echo arg
-	testApp()
+	testApp("script.groovy:: buildApp.")
 }
 
-def testApp() {
-  echo 'testing the application'
+def testApp(String type) {
+	println "from " + type
+	echo 'testing the application'
 }
 
 def deployApp() {
-  echo 'deploying the application'
-  echo "deploying version ${params.VERSION}"
+	echo 'deploying the application'
+  	echo "deploying version ${params.VERSION}"
+  	echo this.value
 }
 
 return this
